@@ -1,12 +1,13 @@
 <?php
 require_once("common.php");
+sleep(3);
 
 //クエリー(引数)を受け取る
-$qid=$_GET['question'];
+$qid=isset($_GET['question'])?$_GET['question']:-1;
 $answer=$_GET['answer'];
 
 //バリデーション(要は正しい値かをチェックしてる)
-if($qid==-1||!is_numeric($qid)((0<=$qid)&&($qid<count($question)))){
+if($qid==-1||!is_numeric($qid)||!((0<=$qid)&&($qid<count($question)))){
     echo 'error : $qid invalid';
     exit(1);
 }
